@@ -10,7 +10,6 @@ export class UserController {
     async createUser(@Body() userData) {
         this.userRepository.save(userData);
         
-        return userData;
-        //return {status : 'User created!'};
+        return userData;        
     }
 }
