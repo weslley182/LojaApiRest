@@ -1,9 +1,12 @@
-import { ArrayMinSize, IsArray, IsDate, IsDateString, IsNotEmpty, IsNumber, IsOptional, ValidateNested } from 'class-validator';
+import { ArrayMinSize, IsArray, IsDateString, IsNotEmpty, IsNumber, IsOptional, IsUUID, ValidateNested } from 'class-validator';
+import { Type } from 'class-transformer';
 import { ProductFeatureDTO } from './productFeature.dto';
 import { ProductImageDTO } from './productImage.dto';
-import { Type } from 'class-transformer';
 
 export class CreateProductDTO {
+    @IsUUID(undefined, { message: 'User Id is invalid' })
+    userId: string;
+
     @IsNotEmpty()
     name: string;
     
