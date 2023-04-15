@@ -18,15 +18,18 @@ export class UserRepository {
         return this.users.find(user => user.email === email);
     }
 
-    async getById(id: string) {
-        return this.users.find(user => user.id === id);
+    private async getById(id: string) {
+        const user = this.users.find(user => user.id === id);
+        if(!user) {
+            throw new Error('User not exists');
+        }
+
+        return user;
     }
 
     async update(id: string, updateData: Partial<UserEntity>) {
         const user = await this.getById(id);
-        if(!user) {
-            throw new Error('User not exists');
-        }
+        
 
         Object.entries(updateData).forEach( ([key, value]) => {
             if(key === id) {
@@ -37,5 +40,13 @@ export class UserRepository {
 
         return user;
 
+    }
+
+    async remove(id: string) {
+        const user = await this.getById(id);
+        this.users = this.users.filter(
+            u => u.id !== id
+        )
+        return user;
     }
 }
