@@ -85,4 +85,5 @@ https://docs.nestjs.com/faq/request-lifecycle
 ## Commands:
  - npx @nestjs/cli new loja
  - npm install class-validator class-transformer
+ - npm install -D @types/uuid
 
