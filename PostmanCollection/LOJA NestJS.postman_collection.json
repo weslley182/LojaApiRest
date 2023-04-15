@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Wesley3\",\r\n    \"email\" : \"weslley182@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+					"raw": "{\r\n    \"name\": \"Wesley\",\r\n    \"email\" : \"weslley182@gmail.com\",\r\n    \"password\": \"123456\" \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -38,7 +38,18 @@
 			"name": "To List users",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
 			},
 			"response": []
 		},
@@ -49,7 +60,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"video game\",\r\n    \"Description\" : \"Playstation 5\"\r\n}",
+					"raw": "{\r\n    \"name\": \"Figura de ação Marvel Homem Aranha Olympus Homem Aranha E6358 de Hasbro Classic\",\r\n    \"amount\": 70.0,\r\n    \"quantity\": 10,\r\n    \"description\": \"Produto novo, bem acabado, alegria para colecionadores\",\r\n    \"features\": [{\r\n        \"name\": \"Fabricante\",\r\n        \"description\": \"Iron Studios\"\r\n    },{\r\n        \"name\": \"material\",\r\n        \"description\": \"Plástico\"\r\n    }],\r\n    \"images\": [{\r\n        \"url\": \"https://i.imgur.com/dwDZICq.jpg\",\r\n        \"description\": \"Imagem do Homem Aranha\"\r\n    }],\r\n    \"category\": \"Colecionáveis\",\r\n    \"createdDate\": \"2022-10-12T14:22:53.496Z\",\r\n    \"updateDate\": \"2022-10-12T14:22:53.496Z\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -74,7 +85,18 @@
 			"name": "List Product",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					]
+				}
 			},
 			"response": []
 		}
