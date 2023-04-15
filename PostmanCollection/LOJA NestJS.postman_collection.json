@@ -99,6 +99,35 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Update user",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Wesley Machado\"    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/10734e7a-6767-4f93-8ca0-2bd5eae38966",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"10734e7a-6767-4f93-8ca0-2bd5eae38966"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
