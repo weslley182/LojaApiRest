@@ -75,3 +75,14 @@ Nest is [MIT licensed](LICENSE).
 https://docs.nestjs.com/modules
 <br>
 https://docs.nestjs.com/modules#dependency-injection
+<br>
+https://docs.nestjs.com/pipes
+<br>
+https://docs.nestjs.com/techniques/validation
+<br>
+https://docs.nestjs.com/faq/request-lifecycle
+
+## Commands:
+ - npx @nestjs/cli new loja
+ - npm install class-validator class-transformer
+
