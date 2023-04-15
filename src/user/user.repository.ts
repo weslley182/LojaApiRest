@@ -11,4 +11,8 @@ export class UserRepository {
     async list() {
         return this.users;
     }
+
+    async getByEmail(email: string) {
+        return this.users.find(user => user.email === email);
+    }
 }
