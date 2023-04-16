@@ -83,6 +83,7 @@ https://docs.nestjs.com/techniques/validation
 https://docs.nestjs.com/faq/request-lifecycle
 
 ## Commands:
+ - npm set strict-ssl false
  - npx @nestjs/cli new loja
  - npm install class-validator class-transformer
  - npm install -D @types/uuid
