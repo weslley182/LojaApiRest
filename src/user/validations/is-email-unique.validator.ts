@@ -8,9 +8,10 @@ export class IsEmailUniqueValidator implements ValidatorConstraintInterface {
     
     constructor(private _userRepository: UserRepository){}
 
-    async validate(value: any, validationArguments?: ValidationArguments): Promise<boolean> {
+    async validate(value: string, validationArguments?: ValidationArguments): Promise<boolean> {
         const user = await this._userRepository.getByEmail(value);        
-        return user === undefined;
+        // return user === undefined;
+        return !!!user;
     }
     
     defaultMessage?(validationArguments?: ValidationArguments): string {
