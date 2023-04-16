@@ -28,8 +28,7 @@ export class UserRepository {
     }
 
     async update(id: string, updateData: Partial<UserEntity>) {
-        const user = await this.getById(id);
-        
+        const user = await this.getById(id);        
 
         Object.entries(updateData).forEach( ([key, value]) => {
             if(key === id) {
