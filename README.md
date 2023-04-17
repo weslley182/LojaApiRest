@@ -92,3 +92,6 @@ https://docs.nestjs.com/exception-filters
  - npm install class-validator class-transformer
  - npm install -D @types/uuid
 
+## Swagger Adress
+ - http://localhost:3000/swagger 
+
