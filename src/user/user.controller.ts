@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, HttpStatus } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, HttpStatus, NotFoundException } from '@nestjs/common';
 import { v4 as uuid } from 'uuid';
 import { UserEntity } from './user.entity';
 import { UserRepository } from './user.repository';
@@ -45,13 +45,18 @@ export class UserController {
     @Get()
     async listUsers() {
         const allUsers = await this._userRepository.list();
+        
+        if(allUsers.length == 0){
+            throw new NotFoundException();
+        }
+        
         const list = allUsers.map(
             user => new ListUserDTO(
                 user.id,
                 user.name
             )
         );
-
+        
         return list;
     }
 

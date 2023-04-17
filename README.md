@@ -83,6 +83,8 @@ https://docs.nestjs.com/pipes
 https://docs.nestjs.com/techniques/validation
 <br>
 https://docs.nestjs.com/faq/request-lifecycle
+<br>
+https://docs.nestjs.com/exception-filters
 
 ## Commands:
  - npm set strict-ssl false
