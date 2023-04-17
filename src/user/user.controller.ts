@@ -63,4 +63,9 @@ export class UserController {
         const allUsers = await this._userRepository.list();
         return allUsers;
     }
+
+    @Get('/callError')
+    async callAnError() {
+        throw new Error('Calling a generic error.')
+    }
 }
