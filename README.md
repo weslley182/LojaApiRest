@@ -74,17 +74,13 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 Nest is [MIT licensed](LICENSE).
 
-https://docs.nestjs.com/modules
-<br>
-https://docs.nestjs.com/modules#dependency-injection
-<br>
-https://docs.nestjs.com/pipes
-<br>
-https://docs.nestjs.com/techniques/validation
-<br>
-https://docs.nestjs.com/faq/request-lifecycle
-<br>
-https://docs.nestjs.com/exception-filters
+ - https://docs.nestjs.com/modules
+ - https://docs.nestjs.com/modules#dependency-injection
+ - https://docs.nestjs.com/pipes
+ - https://docs.nestjs.com/techniques/validation
+ - https://docs.nestjs.com/faq/request-lifecycle
+ - https://docs.nestjs.com/exception-filters
+ - https://docs.nestjs.com/openapi/introduction
 
 ## Commands:
  - npm set strict-ssl false
