@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Wesley\",\r\n    \"email\" : \"weslley182@gmail.com\",\r\n    \"password\": \"123456\" \r\n}",
+					"raw": "{\r\n    \"name\": \"Wesley2\",\r\n    \"email\" : \"weslley1822@gmail.com\",\r\n    \"password\": \"123456\" \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -132,8 +132,49 @@
 		{
 			"name": "remove user",
 			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/8e2bf8de-f7d8-49b1-8ff2-d68db6794776",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"8e2bf8de-f7d8-49b1-8ff2-d68db6794776"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Users",
+			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users/allusers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"allusers"
+					]
+				}
 			},
 			"response": []
 		}

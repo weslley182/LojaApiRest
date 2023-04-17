@@ -56,4 +56,11 @@ export class UserController {
             message : "user removed"
         }
     }
+
+    //testing interceptor
+    @Get('/allUsers')
+    async listNewUsers() {
+        const allUsers = await this._userRepository.list();
+        return allUsers;
+    }
 }
