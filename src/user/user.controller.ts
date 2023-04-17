@@ -1,10 +1,12 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, HttpStatus } from '@nestjs/common';
 import { v4 as uuid } from 'uuid';
 import { UserEntity } from './user.entity';
 import { UserRepository } from './user.repository';
 import { CreateUserDTO } from './dto/createUser.dto';
 import { ListUserDTO } from './dto/listUser.dto';
 import { UpdateUserDTO } from './dto/updateUser.dto';
+import { NestResponse } from '../core/http/nest-response';
+import { NestResponseBuilder } from '../core/http/nest-response-builder';
 
 @Controller('/users')
 export class UserController {
@@ -12,18 +14,32 @@ export class UserController {
     constructor(private _userRepository: UserRepository) {}    
 
     @Post()
-    async createUser(@Body() userData: CreateUserDTO) {
+    async createUser(@Body() userData: CreateUserDTO): Promise<NestResponse> {
+        
         const userEntity = new UserEntity();
         userEntity.email = userData.email;
         userEntity.password = userData.password;
         userEntity.name = userData.name;
-        userEntity.id = uuid();
+        userEntity.id = uuid();        
 
-        this._userRepository.save(userEntity);        
-        return { 
-            user: new ListUserDTO(userEntity.id, userEntity.name), 
-            message: 'user created!.' 
-        }
+        this._userRepository.save(userEntity);
+        return new NestResponseBuilder()
+            .withStatus(HttpStatus.CREATED)
+            .withHeader({
+                'Location': `/users/${userEntity.name}`
+            })
+            .withBody(                
+                { 
+                    user: userEntity, 
+                    message: 'user created!.' 
+                }
+            )
+            .build();
+
+        // return { 
+        //     user: new ListUserDTO(userEntity.id, userEntity.name), 
+        //     message: 'user created!.' 
+        // }
     }
 
     @Get()
