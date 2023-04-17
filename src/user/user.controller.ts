@@ -7,6 +7,7 @@ import { ListUserDTO } from './dto/listUser.dto';
 import { UpdateUserDTO } from './dto/updateUser.dto';
 import { NestResponse } from '../core/http/nest-response';
 import { NestResponseBuilder } from '../core/http/nest-response-builder';
+import { ApiOperation, ApiResponse } from '@nestjs/swagger';
 
 @Controller('/users')
 export class UserController {
@@ -41,7 +42,11 @@ export class UserController {
         //     message: 'user created!.' 
         // }
     }
-
+    
+    @ApiOperation({ summary: 'Search for all registered user on system' })
+    @ApiResponse({ status: 200, description: 'User created' })
+    @ApiResponse({ status: 400, description: 'User has missing/invalid values' })
+    @ApiResponse({ status: 500, description: 'Oops! Cant create your user right now' })
     @Get()
     async listUsers() {
         const allUsers = await this._userRepository.list();

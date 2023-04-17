@@ -15,6 +15,7 @@ async function bootstrap() {
   );
   
   useContainer(app.select(AppModule), { fallbackOnErrors: true });
+  
   const config = new DocumentBuilder()
     .setTitle('Store Rest API')
     .setDescription('A Restfull API for a Store')
