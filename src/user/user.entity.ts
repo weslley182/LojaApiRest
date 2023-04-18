@@ -11,4 +11,11 @@ export class UserEntity {
     //testing interceptor
     @Exclude()
     password: string;
+    
+    constructor(user?: Partial<UserEntity>) {
+        this.id = user?.id;
+        this.name = user?.name;
+        this.email = user?.email;
+        this.password = user?.password;
+    }
 }
