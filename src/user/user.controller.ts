@@ -21,7 +21,7 @@ export class UserController {
         userEntity.email = userData.email;
         userEntity.password = userData.password;
         userEntity.name = userData.name;
-        userEntity.id = uuid();        
+        userEntity.id = uuid();
 
         this._userRepository.save(userEntity);
         return new NestResponseBuilder()
@@ -43,11 +43,13 @@ export class UserController {
         // }
     }
     
+    @Get()
     @ApiOperation({ summary: 'Search for all registered user on system' })
-    @ApiResponse({ status: 200, description: 'User created' })
+    @ApiResponse({ 
+        status: 200, 
+        description: 'User created' })
     @ApiResponse({ status: 400, description: 'User has missing/invalid values' })
     @ApiResponse({ status: 500, description: 'Oops! Cant create your user right now' })
-    @Get()
     async listUsers() {
         const allUsers = await this._userRepository.list();
         
