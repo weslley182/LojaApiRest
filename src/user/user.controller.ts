@@ -1,13 +1,11 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, HttpStatus, NotFoundException } from '@nestjs/common';
-import { v4 as uuid } from 'uuid';
-import { UserEntity } from './user.entity';
+import { ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { UserRepository } from './user.repository';
 import { CreateUserDTO } from './dto/createUser.dto';
 import { ListUserDTO } from './dto/listUser.dto';
 import { UpdateUserDTO } from './dto/updateUser.dto';
 import { NestResponse } from '../core/http/nest-response';
 import { NestResponseBuilder } from '../core/http/nest-response-builder';
-import { ApiOperation, ApiResponse } from '@nestjs/swagger';
 
 @Controller('/users')
 export class UserController {

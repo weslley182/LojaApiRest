@@ -1,5 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { NotFoundException } from '@nestjs/common/exceptions';
+import { HttpStatus } from '@nestjs/common';
+import { BadRequestException, NotFoundException } from '@nestjs/common/exceptions';
 import { v4 as uuid } from 'uuid';
 import { UserController } from "./user.controller";
 import { UserRepository } from './user.repository';
@@ -7,7 +8,6 @@ import { ListUserDTO } from './dto/listUser.dto';
 import { CreateUserDTO } from './dto/createUser.dto';
 import { UserEntity } from './user.entity';
 import { NestResponseBuilder } from '../core/http/nest-response-builder';
-import { HttpStatus } from '@nestjs/common';
 
 const listUserDTO: ListUserDTO[] = [
     new ListUserDTO (uuid(), 'Wesley'),
@@ -16,6 +16,7 @@ const listUserDTO: ListUserDTO[] = [
 ];
 
 const newUserEntity = new UserEntity({id: uuid(), name: 'Will', email: 'will@hotmail.com', password : '123456'});
+const newUserEntityNoMail = new UserEntity({id: uuid(), name: 'Will', password : '123456'});
 const nestResponse =  new NestResponseBuilder().withStatus(HttpStatus.CREATED).withHeader({'Location': `/users/${newUserEntity.name}`
     }).withBody({user: newUserEntity, message: 'user created!.' }).build();
 
@@ -30,7 +31,7 @@ describe('UserController', () => {
                 { 
                     provide: UserRepository,
                     useValue: {
-                        save: jest.fn().mockResolvedValue(newUserEntity),
+                        save: jest.fn(),
                         list: jest.fn().mockResolvedValue(listUserDTO), 
                         getByEmail: jest.fn(), 
                         getById: jest.fn(), 
@@ -80,6 +81,8 @@ describe('UserController', () => {
     describe('createUser', () => {
         it('Should return an user created', async () => {
             //Arrange
+            jest.spyOn(userRepository, 'save').mockResolvedValueOnce(newUserEntity);
+
             const userData = new CreateUserDTO({
                 name: newUserEntity.name, 
                 email: newUserEntity.email, 
@@ -92,6 +95,6 @@ describe('UserController', () => {
             expect(typeof result).toEqual('object');
             expect(userRepository.save).toHaveBeenCalledTimes(1);
             expect(userRepository.save).toHaveBeenCalledWith(userData);
-        });
+        });       
     });
 });

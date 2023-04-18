@@ -8,11 +8,16 @@ export class UserRepository {
     private users: UserEntity[] = [];
 
     async save(user: CreateUserDTO) {
-        const userEntity = new UserEntity();
-        userEntity.email = user.email;
-        userEntity.password = user.password;
-        userEntity.name = user.name;
-        userEntity.id = uuid();
+        console.log(user);
+
+        const userEntity = new UserEntity({
+            id: uuid(),
+            name: user.name,
+            email: user.email,
+            password: user.password
+        });
+        
+        console.log(userEntity);
 
         this.users.push(userEntity);
         return userEntity;
