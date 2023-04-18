@@ -82,6 +82,7 @@ Nest is [MIT licensed](LICENSE).
  - https://docs.nestjs.com/exception-filters
  - https://docs.nestjs.com/openapi/introduction
  - https://www.youtube.com/watch?v=igrlZqviOiI
+ - https://www.youtube.com/watch?v=dXOfOgFFKuY
 
 ## Commands:
  - npm set strict-ssl false
