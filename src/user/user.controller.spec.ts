@@ -95,6 +95,19 @@ describe('UserController', () => {
             expect(typeof result).toEqual('object');
             expect(userRepository.save).toHaveBeenCalledTimes(1);
             expect(userRepository.save).toHaveBeenCalledWith(userData);
-        });       
+        });
+
+        it('Should throw a Email Exception', async () => {
+            //arrange
+            jest.spyOn(userRepository, 'list').mockRejectedValueOnce(new Error());
+
+            const userData = new CreateUserDTO({
+                name: newUserEntity.name,                 
+                password: newUserEntity.password
+            });
+   
+            //Assert
+            expect(userController.createUser(userData)).rejects.toThrowError();        
+        });
     });
 });
