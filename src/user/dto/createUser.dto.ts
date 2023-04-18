@@ -12,4 +12,13 @@ export class CreateUserDTO {
 
     @MinLength(6)
     password: string;
+
+    /**
+     *
+     */
+    constructor(user?: Partial<CreateUserDTO>) {
+        this.name = user?.name;
+        this.email = user?.email;
+        this.password = user?.password;        
+    }
 }
