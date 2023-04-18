@@ -15,15 +15,9 @@ export class UserController {
     constructor(private _userRepository: UserRepository) {}    
 
     @Post()
-    async createUser(@Body() userData: CreateUserDTO): Promise<NestResponse> {
-        
-        const userEntity = new UserEntity();
-        userEntity.email = userData.email;
-        userEntity.password = userData.password;
-        userEntity.name = userData.name;
-        userEntity.id = uuid();
+    async createUser(@Body() userData: CreateUserDTO): Promise<NestResponse> {        
 
-        this._userRepository.save(userEntity);
+        let userEntity = await this._userRepository.save(userData);
         return new NestResponseBuilder()
             .withStatus(HttpStatus.CREATED)
             .withHeader({
