@@ -88,6 +88,9 @@ Nest is [MIT licensed](LICENSE).
  - npm install class-validator class-transformer
  - npm install -D @types/uuid
 
+ - npm run test:watch
+ - npm run test:watch -t <Relative Path>
+
 ## Swagger Adress
  - http://localhost:3000/swagger 
 
